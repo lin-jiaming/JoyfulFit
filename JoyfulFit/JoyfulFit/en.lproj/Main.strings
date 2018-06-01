@@ -1,0 +1,48 @@
+
+/* Class = "UINavigationItem"; title = "历程"; ObjectID = "1VQ-sx-fNX"; */
+"1VQ-sx-fNX.title" = "历程";
+
+/* Class = "UILabel"; text = "与健康同步"; ObjectID = "1gv-2a-lt9"; */
+"1gv-2a-lt9.text" = "与健康同步";
+
+/* Class = "UILabel"; text = "设置语言"; ObjectID = "6AC-x3-yEx"; */
+"6AC-x3-yEx.text" = "设置语言";
+
+/* Class = "UITabBarItem"; title = "设置"; ObjectID = "7fE-5W-yYv"; */
+"7fE-5W-yYv.title" = "设置";
+
+/* Class = "UITabBarItem"; title = "称重"; ObjectID = "8HG-Qm-CDx"; */
+"8HG-Qm-CDx.title" = "称重";
+
+/* Class = "UITabBarItem"; title = "主页"; ObjectID = "CTB-UX-Mg2"; */
+"CTB-UX-Mg2.title" = "主页";
+
+/* Class = "UINavigationItem"; title = "设置"; ObjectID = "GT5-0g-qU2"; */
+"GT5-0g-qU2.title" = "设置";
+
+/* Class = "UITabBarItem"; title = "用户"; ObjectID = "T01-jM-MIc"; */
+"T01-jM-MIc.title" = "用户";
+
+/* Class = "UITabBarItem"; title = "称重"; ObjectID = "Yvx-8Z-h3F"; */
+"Yvx-8Z-h3F.title" = "称重";
+
+/* Class = "UINavigationItem"; title = "称重"; ObjectID = "bwI-1U-xsy"; */
+"bwI-1U-xsy.title" = "称重";
+
+/* Class = "UITabBarItem"; title = "设置"; ObjectID = "gIK-ft-1zN"; */
+"gIK-ft-1zN.title" = "设置";
+
+/* Class = "UITabBarItem"; title = "历程"; ObjectID = "j9y-o3-4a6"; */
+"j9y-o3-4a6.title" = "历程";
+
+/* Class = "UITabBarItem"; title = "主页"; ObjectID = "kVW-mP-kqp"; */
+"kVW-mP-kqp.title" = "主页";
+
+/* Class = "UITabBarItem"; title = "历程"; ObjectID = "uVP-oA-oaC"; */
+"uVP-oA-oaC.title" = "历程";
+
+/* Class = "UILabel"; text = "汇出报告"; ObjectID = "xO2-i8-AHf"; */
+"xO2-i8-AHf.text" = "汇出报告";
+
+/* Class = "UINavigationItem"; title = "主页"; ObjectID = "zXg-yW-PLY"; */
+"zXg-yW-PLY.title" = "主页";
