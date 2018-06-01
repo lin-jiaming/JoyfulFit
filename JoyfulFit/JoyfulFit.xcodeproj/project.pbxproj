@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B452309420C10CEB00180310 /* RealmDaoHelper.swift */; };
 		B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4762D9C20ABFE750075A83C /* LoginViewController.swift */; };
 		B4762D9F20AC18960075A83C /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */; };
 		B497582120AAAA2F001ADA02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497582020AAAA2F001ADA02 /* AppDelegate.swift */; };
@@ -18,7 +19,6 @@
 		B497583A20AAB533001ADA02 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497583920AAB533001ADA02 /* BalanceViewController.swift */; };
 		B497583C20AAB546001ADA02 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497583B20AAB546001ADA02 /* CourseViewController.swift */; };
 		B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497583D20AAB562001ADA02 /* SettingViewController.swift */; };
-		B49CFF9120B6868300B0CD72 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49CFF9020B6868300B0CD72 /* RealmDaoHelper.swift */; };
 		B4A4FFBD20B7DA0F0019CDF2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4FFBC20B7DA0F0019CDF2 /* UserInfo.swift */; };
 		B4AE790520AD66FE0077C5C7 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */; };
 		B4B9BFD020B542A2002AC9BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */; };
@@ -27,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		4B89D067FAE8403143430CE8 /* Pods-JoyfulFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyfulFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JoyfulFit/Pods-JoyfulFit.debug.xcconfig"; sourceTree = "<group>"; };
+		B452309420C10CEB00180310 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
 		B4762D9C20ABFE750075A83C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
 		B497581D20AAAA2F001ADA02 /* JoyfulFit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JoyfulFit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +41,6 @@
 		B497583920AAB533001ADA02 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		B497583B20AAB546001ADA02 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		B497583D20AAB562001ADA02 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		B49CFF9020B6868300B0CD72 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
 		B4A4FFBC20B7DA0F0019CDF2 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -77,11 +77,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B452309320C10CC300180310 /* RealmHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				B452309420C10CEB00180310 /* RealmDaoHelper.swift */,
+			);
+			path = RealmHelpers;
+			sourceTree = "<group>";
+		};
 		B497581420AAAA2F001ADA02 = {
 			isa = PBXGroup;
 			children = (
+				B452309320C10CC300180310 /* RealmHelpers */,
 				B49CFFAC20B690E100B0CD72 /* DataModel */,
-				B49CFF8520B64C3600B0CD72 /* RealmHelpers */,
 				B497583620AAB284001ADA02 /* Base */,
 				B497581F20AAAA2F001ADA02 /* JoyfulFit */,
 				B497581E20AAAA2F001ADA02 /* Products */,
@@ -126,14 +134,6 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		B49CFF8520B64C3600B0CD72 /* RealmHelpers */ = {
-			isa = PBXGroup;
-			children = (
-				B49CFF9020B6868300B0CD72 /* RealmDaoHelper.swift */,
-			);
-			path = RealmHelpers;
-			sourceTree = "<group>";
-		};
 		B49CFFAC20B690E100B0CD72 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +154,6 @@
 				B497581A20AAAA2F001ADA02 /* Frameworks */,
 				B497581B20AAAA2F001ADA02 /* Resources */,
 				6D355F2ACE30AB1DECE43409 /* [CP] Embed Pods Frameworks */,
-				3857D382EE4B3846D0C97971 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,21 +213,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3857D382EE4B3846D0C97971 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JoyfulFit/Pods-JoyfulFit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		3A481B2BF69026496B854C01 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -280,12 +264,12 @@
 				B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */,
 				B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */,
 				B4762D9F20AC18960075A83C /* AddUserInfoViewController.swift in Sources */,
-				B49CFF9120B6868300B0CD72 /* RealmDaoHelper.swift in Sources */,
 				B497583A20AAB533001ADA02 /* BalanceViewController.swift in Sources */,
 				B497583C20AAB546001ADA02 /* CourseViewController.swift in Sources */,
 				B497582120AAAA2F001ADA02 /* AppDelegate.swift in Sources */,
 				B4AE790520AD66FE0077C5C7 /* ForgetPasswordViewController.swift in Sources */,
 				B4A4FFBD20B7DA0F0019CDF2 /* UserInfo.swift in Sources */,
+				B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */,
 				B497583820AAB516001ADA02 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
