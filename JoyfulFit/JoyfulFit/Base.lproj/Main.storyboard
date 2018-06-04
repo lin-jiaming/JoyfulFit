@@ -625,7 +625,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zcz-iJ-SEx">
-                                                            <rect key="frame" x="50" y="192" width="150" height="45"/>
+                                                            <rect key="frame" x="45" y="192" width="160" height="45"/>
                                                             <color key="backgroundColor" red="0.46128886940000002" green="0.67376101020000001" blue="0.7979461551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="45" id="3gP-3D-Lu7"/>
@@ -639,14 +639,14 @@
                                                     <constraints>
                                                         <constraint firstItem="Zcz-iJ-SEx" firstAttribute="top" secondItem="dhQ-qN-QzA" secondAttribute="bottom" constant="8" id="3gG-we-OhZ"/>
                                                         <constraint firstItem="05O-9b-02g" firstAttribute="top" secondItem="o0x-Rg-I7K" secondAttribute="top" constant="30" id="9jY-md-XPA"/>
-                                                        <constraint firstItem="Zcz-iJ-SEx" firstAttribute="leading" secondItem="o0x-Rg-I7K" secondAttribute="leading" constant="50" id="HNE-XI-jr5"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Zcz-iJ-SEx" secondAttribute="trailing" constant="45" id="EtU-Ul-Bag"/>
+                                                        <constraint firstItem="Zcz-iJ-SEx" firstAttribute="leading" secondItem="o0x-Rg-I7K" secondAttribute="leading" constant="45" id="HNE-XI-jr5"/>
                                                         <constraint firstAttribute="height" constant="250" id="Php-50-hWj"/>
                                                         <constraint firstAttribute="trailing" secondItem="dhQ-qN-QzA" secondAttribute="trailing" constant="25" id="QJ2-7A-R01"/>
                                                         <constraint firstItem="dhQ-qN-QzA" firstAttribute="leading" secondItem="o0x-Rg-I7K" secondAttribute="leading" constant="25" id="VDN-GG-GxT"/>
                                                         <constraint firstItem="7gp-oM-fNm" firstAttribute="top" secondItem="o0x-Rg-I7K" secondAttribute="top" constant="8" id="fVW-qP-c4n"/>
                                                         <constraint firstAttribute="width" constant="250" id="g2f-Zi-PVO"/>
                                                         <constraint firstItem="05O-9b-02g" firstAttribute="centerX" secondItem="o0x-Rg-I7K" secondAttribute="centerX" id="j6D-FV-GwE"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Zcz-iJ-SEx" secondAttribute="trailing" constant="50" id="jns-rB-ltw"/>
                                                         <constraint firstAttribute="bottom" secondItem="Zcz-iJ-SEx" secondAttribute="bottom" constant="13" id="ork-As-sxe"/>
                                                         <constraint firstAttribute="trailing" secondItem="7gp-oM-fNm" secondAttribute="trailing" constant="8" id="wbl-za-KyC"/>
                                                     </constraints>
@@ -761,7 +761,7 @@
         <!--称重-->
         <scene sceneID="TiH-gj-Qwr">
             <objects>
-                <viewController id="5EI-OJ-P01" sceneMemberID="viewController">
+                <viewController id="5EI-OJ-P01" customClass="BalanceViewController" customModule="JoyfulFit" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EXJ-ib-upm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1056,6 +1056,9 @@
                     <tabBarItem key="tabBarItem" title="称重" image="Balance" id="Yvx-8Z-h3F"/>
                     <navigationItem key="navigationItem" title="称重" id="bwI-1U-xsy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="BalanceView" destination="Sms-6F-7q4" id="caL-MX-Pfm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1i-Yo-1Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1255,7 +1258,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iq3-Nb-Gy9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="543"/>
+            <point key="canvasLocation" x="568" y="542"/>
         </scene>
     </scenes>
     <resources>

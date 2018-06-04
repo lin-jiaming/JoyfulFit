@@ -13,6 +13,7 @@ let S_WIDTH: CGFloat = UIScreen.main.bounds.size.width
 //定义获取屏幕高度
 let S_HEIGHT: CGFloat = UIScreen.main.bounds.size.height
 
+//主页控制类
 class HomeViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate{
     //绑定CollectionView
     @IBOutlet weak var collectionView: UICollectionView!

@@ -43,4 +43,10 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
         }
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.Email.resignFirstResponder()
+        self.PassWord.resignFirstResponder()
+        self.ConfirmPassword.resignFirstResponder()
+    }
+    
 }
