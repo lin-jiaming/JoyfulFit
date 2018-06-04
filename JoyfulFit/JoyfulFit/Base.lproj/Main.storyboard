@@ -1033,9 +1033,9 @@
                                     <constraint firstAttribute="bottom" secondItem="XtE-WV-Xnr" secondAttribute="bottom" id="uL3-kw-aRo"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sms-6F-7q4">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sms-6F-7q4" customClass="ScaleView" customModule="JoyfulFit" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="416" width="320" height="103"/>
-                                <color key="backgroundColor" red="0.49019607840000001" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.92146831750869751" green="0.92162638902664185" blue="0.92145842313766479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1056,9 +1056,6 @@
                     <tabBarItem key="tabBarItem" title="称重" image="Balance" id="Yvx-8Z-h3F"/>
                     <navigationItem key="navigationItem" title="称重" id="bwI-1U-xsy"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="BalanceView" destination="Sms-6F-7q4" id="caL-MX-Pfm"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1i-Yo-1Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
