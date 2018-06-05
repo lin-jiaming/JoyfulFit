@@ -19,10 +19,13 @@
 		B497583A20AAB533001ADA02 /* BalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497583920AAB533001ADA02 /* BalanceViewController.swift */; };
 		B497583C20AAB546001ADA02 /* CourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497583B20AAB546001ADA02 /* CourseViewController.swift */; };
 		B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B497583D20AAB562001ADA02 /* SettingViewController.swift */; };
-		B4A4FFBD20B7DA0F0019CDF2 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4FFBC20B7DA0F0019CDF2 /* UserInfo.swift */; };
+		B4A4FFBD20B7DA0F0019CDF2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4FFBC20B7DA0F0019CDF2 /* UserModel.swift */; };
 		B4AE790520AD66FE0077C5C7 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */; };
 		B4AFC4F220C5218C00BC1BE6 /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AFC4F120C5218C00BC1BE6 /* ScaleView.swift */; };
 		B4B9BFD020B542A2002AC9BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */; };
+		B4D779A820C637A900C94DD5 /* WeightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D779A720C637A900C94DD5 /* WeightModel.swift */; };
+		B4D779AB20C6523F00C94DD5 /* UserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D779AA20C6523F00C94DD5 /* UserDao.swift */; };
+		B4D779AE20C6525600C94DD5 /* WeightDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D779AD20C6525600C94DD5 /* WeightDao.swift */; };
 		DBCD987670076487B97F7588 /* Pods_JoyfulFit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1650F9596B59B6DE099DF9A /* Pods_JoyfulFit.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,10 +45,13 @@
 		B497583920AAB533001ADA02 /* BalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceViewController.swift; sourceTree = "<group>"; };
 		B497583B20AAB546001ADA02 /* CourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewController.swift; sourceTree = "<group>"; };
 		B497583D20AAB562001ADA02 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
-		B4A4FFBC20B7DA0F0019CDF2 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		B4A4FFBC20B7DA0F0019CDF2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B4AFC4F120C5218C00BC1BE6 /* ScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleView.swift; sourceTree = "<group>"; };
 		B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		B4D779A720C637A900C94DD5 /* WeightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightModel.swift; sourceTree = "<group>"; };
+		B4D779AA20C6523F00C94DD5 /* UserDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDao.swift; sourceTree = "<group>"; };
+		B4D779AD20C6525600C94DD5 /* WeightDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightDao.swift; sourceTree = "<group>"; };
 		C1650F9596B59B6DE099DF9A /* Pods_JoyfulFit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JoyfulFit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2A8C8AA371C1BD6D6866725 /* Pods-JoyfulFit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyfulFit.release.xcconfig"; path = "Pods/Target Support Files/Pods-JoyfulFit/Pods-JoyfulFit.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,9 +96,10 @@
 		B497581420AAAA2F001ADA02 = {
 			isa = PBXGroup;
 			children = (
+				B4D779A920C6522700C94DD5 /* Dao */,
 				B4AFC4F320C5219100BC1BE6 /* Widget */,
 				B452309320C10CC300180310 /* RealmHelpers */,
-				B49CFFAC20B690E100B0CD72 /* DataModel */,
+				B49CFFAC20B690E100B0CD72 /* Models */,
 				B497583620AAB284001ADA02 /* Base */,
 				B497581F20AAAA2F001ADA02 /* JoyfulFit */,
 				B497581E20AAAA2F001ADA02 /* Products */,
@@ -137,12 +144,13 @@
 			path = Base;
 			sourceTree = "<group>";
 		};
-		B49CFFAC20B690E100B0CD72 /* DataModel */ = {
+		B49CFFAC20B690E100B0CD72 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B4A4FFBC20B7DA0F0019CDF2 /* UserInfo.swift */,
+				B4A4FFBC20B7DA0F0019CDF2 /* UserModel.swift */,
+				B4D779A720C637A900C94DD5 /* WeightModel.swift */,
 			);
-			path = DataModel;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		B4AFC4F320C5219100BC1BE6 /* Widget */ = {
@@ -151,6 +159,15 @@
 				B4AFC4F120C5218C00BC1BE6 /* ScaleView.swift */,
 			);
 			path = Widget;
+			sourceTree = "<group>";
+		};
+		B4D779A920C6522700C94DD5 /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				B4D779AA20C6523F00C94DD5 /* UserDao.swift */,
+				B4D779AD20C6525600C94DD5 /* WeightDao.swift */,
+			);
+			path = Dao;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,12 +291,15 @@
 				B4B9BFD020B542A2002AC9BB /* RegisterViewController.swift in Sources */,
 				B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */,
 				B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */,
+				B4D779AB20C6523F00C94DD5 /* UserDao.swift in Sources */,
 				B4762D9F20AC18960075A83C /* AddUserInfoViewController.swift in Sources */,
 				B497583A20AAB533001ADA02 /* BalanceViewController.swift in Sources */,
 				B497583C20AAB546001ADA02 /* CourseViewController.swift in Sources */,
+				B4D779AE20C6525600C94DD5 /* WeightDao.swift in Sources */,
 				B497582120AAAA2F001ADA02 /* AppDelegate.swift in Sources */,
 				B4AE790520AD66FE0077C5C7 /* ForgetPasswordViewController.swift in Sources */,
-				B4A4FFBD20B7DA0F0019CDF2 /* UserInfo.swift in Sources */,
+				B4A4FFBD20B7DA0F0019CDF2 /* UserModel.swift in Sources */,
+				B4D779A820C637A900C94DD5 /* WeightModel.swift in Sources */,
 				B4AFC4F220C5218C00BC1BE6 /* ScaleView.swift in Sources */,
 				B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */,
 				B497583820AAB516001ADA02 /* HomeViewController.swift in Sources */,

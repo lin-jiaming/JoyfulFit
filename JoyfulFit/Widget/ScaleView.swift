@@ -17,7 +17,6 @@ class ScaleView: UIView {
     override func draw(_ rect: CGRect) {
         
         let path = UIBezierPath(arcCenter: CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height+20), radius: self.frame.size.width / 2, startAngle: CGFloat(M_PI) * 0, endAngle: CGFloat(M_PI) * 2, clockwise: true)
-        
         let layer = CAShapeLayer()
         layer.path = path.cgPath
         layer.fillColor = UIColor.clear.cgColor
