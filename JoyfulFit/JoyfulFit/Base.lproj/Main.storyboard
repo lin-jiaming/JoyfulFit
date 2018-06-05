@@ -520,6 +520,9 @@
                                 <state key="normal" title="注册">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="doRegister:" destination="a6Z-sZ-zPo" eventType="touchUpInside" id="ar6-zv-Nm0"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="JoyfulFit" translatesAutoresizingMaskIntoConstraints="NO" id="tDb-Wl-NXu">
                                 <rect key="frame" x="122" y="89" width="76" height="76"/>

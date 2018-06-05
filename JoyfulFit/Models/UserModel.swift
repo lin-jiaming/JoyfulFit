@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 //用户数据模型
 class UserModel: Object {
-    @objc dynamic var id = ""                //主键id
+    @objc dynamic var id = ""             //主键id
     @objc dynamic var admin_user = ""        //主用户id
     @objc dynamic var username = ""         //用户姓名
     @objc dynamic var email = ""            //用户邮箱

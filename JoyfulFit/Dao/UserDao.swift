@@ -13,14 +13,14 @@ final class UserDao{
     static let dao = RealmDaoHelper<UserModel>()
     
     static func addUser(object: UserModel) {
-        object.id = UserDao.dao.newId() as! String
+        object.id = "1"
         UserDao.dao.add(object: object)
     }
     
     static func addUsers(objects: [UserModel]) {
-        let newId = UserDao.dao.newId()
+        let newId = UserDao.dao.newId()!
         for (i, object) in objects.enumerated() {
-            object.id = String(i + newId!)
+            object.id = String(i + newId)
         }
         dao.add(objects: objects)
     }
