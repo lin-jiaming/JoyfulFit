@@ -1,7 +1,8 @@
-platform :ios, '11.2'
+platform :ios, '10.1'
 use_frameworks!
 
 target ‘JoyfulFit’ do
 pod 'RealmSwift'
 pod 'Alamofire'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end

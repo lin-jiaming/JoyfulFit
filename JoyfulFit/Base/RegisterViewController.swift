@@ -8,6 +8,8 @@
 
 import UIKit
 import RealmSwift
+import Alamofire
+import SwiftyJSON
 class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     //邮箱文本框
@@ -53,24 +55,24 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     //注册用户按钮事件
     
     @IBAction func doRegister(_ sender: Any) {
-//        let object = UserModel()
-//        object.id = "1"
-//        object.email = self.Email.text!
-//        object.password = self.PassWord.text!
-//        if object.password != self.ConfirmPassword.text! {
-//            print("密码不一致")
-//        }
-//        UserDao.addUser(object: object)
-//        print("注册用户成功！")
-        let realm = UserDao.dao.realm
-         print(realm.configuration.fileURL ?? "")
-        
-//        let result  = UserDao.dao.findAll()
-//        print(re)
-        
-    }
-    
-    //注册用户的方法
-    
+        let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_initial.php"
+                    let params = ["email" : "1326700455@qq.com"]
+                    Alamofire.request(strURL, method: .get, parameters: params)
+                    .responseJSON{response in
+                        if let data = response.result.value{
+                            let json = JSON(data)
+                            print(json)
+                            let user = UserModel()
+                            user.id = json[0]["id"].stringValue
+                            user.email = json[0]["email"].stringValue
+                            user.username = json[0]["username"].stringValue
+                            print("\(user.id)\(user.email)\(user.username)")
+//                            UserDao.addUser(object: user)
+//                            print("注册成功")
+                           
+                        }
+                        print(UserDao.findAll())
+                }
+        }
     
 }

@@ -5,10 +5,12 @@ PODS:
   - Realm/Headers (3.6.0)
   - RealmSwift (3.6.0):
     - Realm (= 3.6.0)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
   - Alamofire
   - RealmSwift
+  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -16,11 +18,21 @@ SPEC REPOS:
     - Realm
     - RealmSwift
 
+EXTERNAL SOURCES:
+  SwiftyJSON:
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
+CHECKOUT OPTIONS:
+  SwiftyJSON:
+    :commit: b93c5d2bd883959262b4c7aabe333667dadb1ab0
+    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   Realm: 08b464b462d4f31bbd4ba5f5a1c8722ef0a700b7
   RealmSwift: 973e1499c44ab571f894c2c908e2db450be280c3
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: f79b015fd0c33c337198e903ae8792b54e982d54
+PODFILE CHECKSUM: 9ad8862489f48f8688c340b721cbcd5306ff08c6
 
 COCOAPODS: 1.5.3

@@ -12,6 +12,7 @@ final class RealmDaoHelper <T : RealmSwift.Object>{
     let realm: Realm
     init() {
         try! realm = Realm()
+        print("Realm数据库打开成功")
         defer {
             realm.invalidate()
         }
