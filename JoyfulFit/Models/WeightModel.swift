@@ -8,8 +8,11 @@
 
 import Foundation
 import RealmSwift
-class WeightModel: Object{
-    @objc dynamic var res = ""
+import ObjectMapper
+import ObjectMapper_Realm
+//体重数据模型
+class WeightModel: Object, Mappable{
+    @objc dynamic var ref = ""
     @objc dynamic var id = ""
     @objc dynamic var email = ""
     @objc dynamic var weight = ""
@@ -23,9 +26,28 @@ class WeightModel: Object{
     @objc dynamic var create_date = ""
     @objc dynamic var status = ""
     
+    required convenience init?(map: Map){
+        self.init()
+    }
     //这个体重数据主键
     override static func primaryKey() -> String?{
-        return "res"
+        return "ref"
+    }
+    
+    func mapping(map: Map) {
+        ref                 <- map["ref"]
+        id                  <- map["id"]
+        email               <- map["email"]
+        weight              <- map["weight"]
+        bmi                 <- map["bmi"]
+        fat                 <- map["fat"]
+        muscle              <- map["muscle"]
+        bone                <- map["bone"]
+        bmr                 <- map["bmr"]
+        water               <- map["water"]
+        comment             <- map["comment"]
+        create_date         <- map["create_date"]
+        status              <- map["status"]
     }
     
 }

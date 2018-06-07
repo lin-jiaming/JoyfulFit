@@ -13,15 +13,10 @@ final class UserDao{
     static let dao = RealmDaoHelper<UserModel>()
     
     static func addUser(object: UserModel) {
-        object.id = "1"
-        UserDao.dao.add(object: object)
+        dao.add(object: object)
     }
     
-    static func addUsers(objects: [UserModel]) {
-        let newId = UserDao.dao.newId()!
-        for (i, object) in objects.enumerated() {
-            object.id = String(i + newId)
-        }
+    static func addUsers(objects: [UserModel]){
         dao.add(objects: objects)
     }
     
@@ -48,6 +43,6 @@ final class UserDao{
     }
     
     static func findAll() -> [UserModel] {
-        return UserDao.dao.findAll().map {UserModel(value: $0)}
+        return dao.findAll().map {UserModel(value: $0)}
     }
 }

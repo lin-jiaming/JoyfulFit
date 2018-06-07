@@ -10,6 +10,7 @@ import UIKit
 import RealmSwift
 import Alamofire
 import SwiftyJSON
+import AlamofireObjectMapper
 class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     //邮箱文本框
@@ -55,23 +56,13 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     //注册用户按钮事件
     
     @IBAction func doRegister(_ sender: Any) {
-        let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_initial.php"
-                    let params = ["email" : "1326700455@qq.com"]
+        let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_scale.php"
+                    let params = ["email" : "myz0323@gmail.com"]
                     Alamofire.request(strURL, method: .get, parameters: params)
-                    .responseJSON{response in
+                        .responseArray { (response: DataResponse<[WeightModel]>) in
                         if let data = response.result.value{
-                            let json = JSON(data)
-                            print(json)
-                            let user = UserModel()
-                            user.id = json[0]["id"].stringValue
-                            user.email = json[0]["email"].stringValue
-                            user.username = json[0]["username"].stringValue
-                            print("\(user.id)\(user.email)\(user.username)")
-//                            UserDao.addUser(object: user)
-//                            print("注册成功")
-                           
+                            print(data)
                         }
-                        print(UserDao.findAll())
                 }
         }
     

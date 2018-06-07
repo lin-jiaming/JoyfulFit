@@ -5,4 +5,7 @@ target ‘JoyfulFit’ do
 pod 'RealmSwift'
 pod 'Alamofire'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
+pod 'ObjectMapper'
+pod 'ObjectMapper+Realm'
+pod 'AlamofireObjectMapper'
 end

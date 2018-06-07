@@ -12,15 +12,10 @@ final class WeightDao {
     static let dao = RealmDaoHelper<WeightModel>()
     
     static func add(object: WeightModel) {
-        object.res = WeightDao.dao.newId() as! String
-        WeightDao.dao.add(object: object)
+        dao.add(object: object)
     }
     
     static func add(objects: [WeightModel]) {
-        let newId = WeightDao.dao.newId()!
-        for (i, object) in objects.enumerated() {
-            object.res = String(i + newId)
-        }
         dao.add(objects: objects)
     }
     
@@ -51,6 +46,6 @@ final class WeightDao {
     }
     
     static func findAll() -> [WeightModel] {
-        return WeightDao.dao.findAll().map {WeightModel(value: $0)}
+        return dao.findAll().map {WeightModel(value: $0)}
     }
 }
