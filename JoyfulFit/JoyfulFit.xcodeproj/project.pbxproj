@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B446F21D20CA35D500A8530E /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446F21C20CA35D500A8530E /* HistoryCollectionViewCell.swift */; };
 		B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B452309420C10CEB00180310 /* RealmDaoHelper.swift */; };
 		B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4762D9C20ABFE750075A83C /* LoginViewController.swift */; };
 		B4762D9F20AC18960075A83C /* AddUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		4B89D067FAE8403143430CE8 /* Pods-JoyfulFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyfulFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JoyfulFit/Pods-JoyfulFit.debug.xcconfig"; sourceTree = "<group>"; };
+		B446F21C20CA35D500A8530E /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B452309420C10CEB00180310 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
 		B4762D9C20ABFE750075A83C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserInfoViewController.swift; sourceTree = "<group>"; };
@@ -85,6 +87,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B446F21A20CA358200A8530E /* History */ = {
+			isa = PBXGroup;
+			children = (
+				B446F21B20CA359800A8530E /* Cell */,
+				B497583B20AAB546001ADA02 /* CourseViewController.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		B446F21B20CA359800A8530E /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B446F21C20CA35D500A8530E /* HistoryCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B446F21E20CA4A3A00A8530E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B497583720AAB516001ADA02 /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B446F21F20CA4A4700A8530E /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B497583D20AAB562001ADA02 /* SettingViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		B452309320C10CC300180310 /* RealmHelpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,10 +167,10 @@
 		B497583620AAB284001ADA02 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				B497583720AAB516001ADA02 /* HomeViewController.swift */,
+				B446F21F20CA4A4700A8530E /* Setting */,
+				B446F21E20CA4A3A00A8530E /* Home */,
+				B446F21A20CA358200A8530E /* History */,
 				B497583920AAB533001ADA02 /* BalanceViewController.swift */,
-				B497583B20AAB546001ADA02 /* CourseViewController.swift */,
-				B497583D20AAB562001ADA02 /* SettingViewController.swift */,
 				B4762D9C20ABFE750075A83C /* LoginViewController.swift */,
 				B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */,
 				B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */,
@@ -299,6 +334,7 @@
 				B4B9BFD020B542A2002AC9BB /* RegisterViewController.swift in Sources */,
 				B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */,
 				B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */,
+				B446F21D20CA35D500A8530E /* HistoryCollectionViewCell.swift in Sources */,
 				B4D779AB20C6523F00C94DD5 /* UserDao.swift in Sources */,
 				B4762D9F20AC18960075A83C /* AddUserInfoViewController.swift in Sources */,
 				B497583A20AAB533001ADA02 /* BalanceViewController.swift in Sources */,

@@ -26,7 +26,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         collectionView.delegate = self
         collectionView.dataSource = self
         let layout = UICollectionViewFlowLayout()
-        let cellHeight = collectionView.frame.size.height
+        let cellHeight = collectionView.frame.size.height 
         let cellWidth = self.view.frame.size.width
         layout.itemSize = CGSize.init(width: cellWidth, height: cellHeight)
         layout.scrollDirection = .horizontal
@@ -58,6 +58,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath)
         return cell
     }
+    
     
     //实现UIScrollViewDelegate委托协议
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
