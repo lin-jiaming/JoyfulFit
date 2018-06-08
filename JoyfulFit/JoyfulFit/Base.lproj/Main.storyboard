@@ -693,7 +693,7 @@
                                 <rect key="frame" x="0.0" y="407" width="320" height="30"/>
                                 <subviews>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="8B2-gb-wy6">
-                                        <rect key="frame" x="140" y="0.0" width="41" height="37"/>
+                                        <rect key="frame" x="141" y="0.0" width="39" height="37"/>
                                         <color key="pageIndicatorTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="currentPageIndicatorTintColor" red="0.72103768589999995" green="0.67504626509999999" blue="0.79201954600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
@@ -704,9 +704,9 @@
                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="8B2-gb-wy6" firstAttribute="top" secondItem="mmh-pW-zco" secondAttribute="top" id="Adk-O6-XC1"/>
-                                    <constraint firstAttribute="trailing" secondItem="8B2-gb-wy6" secondAttribute="trailing" constant="139" id="i9l-7L-fIl"/>
-                                    <constraint firstItem="8B2-gb-wy6" firstAttribute="leading" secondItem="mmh-pW-zco" secondAttribute="leading" constant="140" id="ixy-CN-Cki"/>
-                                    <constraint firstItem="8B2-gb-wy6" firstAttribute="centerX" secondItem="mmh-pW-zco" secondAttribute="centerX" id="nvK-ee-FWQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8B2-gb-wy6" secondAttribute="trailing" constant="140" id="Ba4-em-xja"/>
+                                    <constraint firstItem="8B2-gb-wy6" firstAttribute="leading" secondItem="mmh-pW-zco" secondAttribute="leading" constant="141" id="eDB-ed-ELH"/>
+                                    <constraint firstItem="8B2-gb-wy6" firstAttribute="top" secondItem="mmh-pW-zco" secondAttribute="top" id="jed-8I-4i9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1083,7 +1083,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1i-Yo-1Dc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4396" y="-22.938530734632685"/>
+            <point key="canvasLocation" x="4395" y="-23.239436619718312"/>
         </scene>
         <!--称重-->
         <scene sceneID="e2F-z5-kUW">
