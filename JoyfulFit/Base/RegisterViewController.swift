@@ -54,16 +54,16 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     }
     
     //注册用户按钮事件
-    
     @IBAction func doRegister(_ sender: Any) {
-        let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_scale.php"
-                    let params = ["email" : "myz0323@gmail.com"]
+        let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_initial.php"
+                    let params = ["email" : "1326700455@qq.com"]
                     Alamofire.request(strURL, method: .get, parameters: params)
-                        .responseArray { (response: DataResponse<[WeightModel]>) in
+                        .responseArray { (response: DataResponse<[UserModel]>) in
                         if let data = response.result.value{
-                            print(data)
+                            print(data[0].email)
                         }
                 }
+            print(WeightDao.findAll())
         }
     
 }
