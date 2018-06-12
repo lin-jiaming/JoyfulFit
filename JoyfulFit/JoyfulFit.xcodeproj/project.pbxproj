@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B444ABF620CF99C0001593DD /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444ABF520CF99C0001593DD /* UserConfig.swift */; };
+		B444ABF820CF9C62001593DD /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444ABF720CF9C62001593DD /* AppManager.swift */; };
+		B444ABFC20CF9C99001593DD /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444ABFB20CF9C99001593DD /* SettingManager.swift */; };
+		B444ABFE20CFA110001593DD /* UserConfigDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444ABFD20CFA110001593DD /* UserConfigDao.swift */; };
 		B446F21D20CA35D500A8530E /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446F21C20CA35D500A8530E /* HistoryCollectionViewCell.swift */; };
 		B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B452309420C10CEB00180310 /* RealmDaoHelper.swift */; };
 		B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4762D9C20ABFE750075A83C /* LoginViewController.swift */; };
@@ -32,6 +36,10 @@
 
 /* Begin PBXFileReference section */
 		4B89D067FAE8403143430CE8 /* Pods-JoyfulFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyfulFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JoyfulFit/Pods-JoyfulFit.debug.xcconfig"; sourceTree = "<group>"; };
+		B444ABF520CF99C0001593DD /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
+		B444ABF720CF9C62001593DD /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		B444ABFB20CF9C99001593DD /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
+		B444ABFD20CFA110001593DD /* UserConfigDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfigDao.swift; sourceTree = "<group>"; };
 		B446F21C20CA35D500A8530E /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B452309420C10CEB00180310 /* RealmDaoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmDaoHelper.swift; sourceTree = "<group>"; };
 		B4762D9C20ABFE750075A83C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B444ABF320CF9793001593DD /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B444ABF420CF97A5001593DD /* Manager */,
+				B444ABF520CF99C0001593DD /* UserConfig.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B444ABF420CF97A5001593DD /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				B444ABF720CF9C62001593DD /* AppManager.swift */,
+				B444ABFB20CF9C99001593DD /* SettingManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		B446F21A20CA358200A8530E /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +157,7 @@
 		B497581420AAAA2F001ADA02 = {
 			isa = PBXGroup;
 			children = (
+				B444ABF320CF9793001593DD /* Core */,
 				B4D779A920C6522700C94DD5 /* Dao */,
 				B4AFC4F320C5219100BC1BE6 /* Widget */,
 				B452309320C10CC300180310 /* RealmHelpers */,
@@ -201,6 +228,7 @@
 			children = (
 				B4D779AA20C6523F00C94DD5 /* UserDao.swift */,
 				B4D779AD20C6525600C94DD5 /* WeightDao.swift */,
+				B444ABFD20CFA110001593DD /* UserConfigDao.swift */,
 			);
 			path = Dao;
 			sourceTree = "<group>";
@@ -331,20 +359,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B444ABFC20CF9C99001593DD /* SettingManager.swift in Sources */,
 				B4B9BFD020B542A2002AC9BB /* RegisterViewController.swift in Sources */,
 				B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */,
 				B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */,
 				B446F21D20CA35D500A8530E /* HistoryCollectionViewCell.swift in Sources */,
 				B4D779AB20C6523F00C94DD5 /* UserDao.swift in Sources */,
 				B4762D9F20AC18960075A83C /* AddUserInfoViewController.swift in Sources */,
+				B444ABFE20CFA110001593DD /* UserConfigDao.swift in Sources */,
 				B497583A20AAB533001ADA02 /* BalanceViewController.swift in Sources */,
 				B497583C20AAB546001ADA02 /* CourseViewController.swift in Sources */,
 				B4D779AE20C6525600C94DD5 /* WeightDao.swift in Sources */,
 				B497582120AAAA2F001ADA02 /* AppDelegate.swift in Sources */,
 				B4AE790520AD66FE0077C5C7 /* ForgetPasswordViewController.swift in Sources */,
+				B444ABF620CF99C0001593DD /* UserConfig.swift in Sources */,
 				B4A4FFBD20B7DA0F0019CDF2 /* UserModel.swift in Sources */,
 				B4D779A820C637A900C94DD5 /* WeightModel.swift in Sources */,
 				B4AFC4F220C5218C00BC1BE6 /* ScaleView.swift in Sources */,
+				B444ABF820CF9C62001593DD /* AppManager.swift in Sources */,
 				B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */,
 				B497583820AAB516001ADA02 /* HomeViewController.swift in Sources */,
 			);

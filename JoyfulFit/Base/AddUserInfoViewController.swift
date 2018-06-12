@@ -9,17 +9,17 @@
 import UIKit
 class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
     //用户姓名
-    @IBOutlet weak var UserNameTextField: UITextField!
+    @IBOutlet weak var userNameTextField: UITextField!
     //用户性别分段选择器
-    @IBOutlet weak var UserSexSegmented: UISegmentedControl!
+    @IBOutlet weak var userSexSegmented: UISegmentedControl!
     //日期文本框
-    @IBOutlet weak var DateTextField: UITextField!
+    @IBOutlet weak var dateTextField: UITextField!
     //身高文本框
-    @IBOutlet weak var HeightTextField: UITextField!
+    @IBOutlet weak var heightTextField: UITextField!
     //体重文本框
-    @IBOutlet weak var PesoTextField: UITextField!
+    @IBOutlet weak var pesoTextField: UITextField!
     //期待体重文本框
-    @IBOutlet weak var ExpectPesoTextField: UITextField!
+    @IBOutlet weak var expectPesoTextField: UITextField!
     
     //日期选择器
     var datePicker = UIDatePicker()
@@ -50,10 +50,10 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         //文本框的委托
-        UserNameTextField.delegate = self
-        HeightTextField.delegate = self
-        PesoTextField.delegate = self
-        ExpectPesoTextField.delegate = self
+        userNameTextField.delegate = self
+        heightTextField.delegate = self
+        pesoTextField.delegate = self
+        expectPesoTextField.delegate = self
         
         //日期选择器
         initDatePickerView()
@@ -62,10 +62,10 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         initHeightPickerView()
         
         //当前体重选择器
-        initPesoPickerView(self.PesoTextField)
+        initPesoPickerView(self.pesoTextField)
         
         //期待体重选择器
-        initPesoPickerView(self.ExpectPesoTextField)
+        initPesoPickerView(self.expectPesoTextField)
     }
     
     override func didReceiveMemoryWarning() {
@@ -75,7 +75,7 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     //初始化日期
     func initDatePickerView(){
         //添加标签栏、确认按钮，取消按钮
-        toolBar(self.DateTextField)
+        toolBar(self.dateTextField)
         //日期选择器属性及样式
         datePicker.locale = NSLocale(localeIdentifier: "zh_cn") as Locale
         datePicker.timeZone = NSTimeZone.system
@@ -83,7 +83,7 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
 //        datePicker.addTarget(self, action: #selector(getDate), for: .valueChanged)
         datePicker.layer.backgroundColor = UIColor.white.cgColor
         datePicker.layer.masksToBounds = true
-        DateTextField.inputView = datePicker
+        dateTextField.inputView = datePicker
     }
     
     //日期选择器选择处理方法
@@ -92,7 +92,7 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         let date = datePicker.date
         formatter.dateFormat = "yyyy-MM-dd"
         let dateStr = formatter.string(from: date)
-        self.DateTextField.text = dateStr
+        self.dateTextField.text = dateStr
     }
     
     //初始化身高选择器
@@ -113,13 +113,13 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
 
         heightPickerView.layer.backgroundColor = UIColor.white.cgColor
         //点击身高文本框弹出身高选择器
-        HeightTextField.inputView = heightPickerView
+        heightTextField.inputView = heightPickerView
         
         //身高数据选项默认中间
         heightPickerView.selectRow(heightAllData[0].count/2, inComponent: 0, animated: false)
         
         //添加一个标签栏，确定按钮，取消按钮
-        toolBar(self.HeightTextField)
+        toolBar(self.heightTextField)
         
         
 //
@@ -155,10 +155,10 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         //背景颜色
         pesoPickerView.layer.backgroundColor = UIColor.white.cgColor
         //点击体重文本框弹出体重选择器
-        if field == self.PesoTextField {
-            self.PesoTextField.inputView = pesoPickerView
+        if field == self.pesoTextField {
+            self.pesoTextField.inputView = pesoPickerView
         }else {
-            self.ExpectPesoTextField.inputView = pesoPickerView
+            self.expectPesoTextField.inputView = pesoPickerView
         }
         
 //        //当前体重默认选择中间
@@ -183,16 +183,16 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     //TextFieldDelegate委托协议
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //关闭键盘
-        if textField == self.UserNameTextField {
+        if textField == self.userNameTextField {
             textField.resignFirstResponder()
             return true
-        } else if textField == self.HeightTextField {
+        } else if textField == self.heightTextField {
             textField.resignFirstResponder()
             return true
-        } else if textField == self.PesoTextField {
+        } else if textField == self.pesoTextField {
             textField.resignFirstResponder()
             return true
-        } else if textField == self.ExpectPesoTextField {
+        } else if textField == self.expectPesoTextField {
             textField.resignFirstResponder()
             return true
         }
@@ -305,11 +305,11 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     }
     //触碰到键盘以外的区域都关闭键盘
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        DateTextField.resignFirstResponder()
-        UserNameTextField.resignFirstResponder()
-//        HeightTextField.resignFirstResponder()
-        PesoTextField.resignFirstResponder()
-        ExpectPesoTextField.resignFirstResponder()
+        dateTextField.resignFirstResponder()
+        userNameTextField.resignFirstResponder()
+//        heightTextField.resignFirstResponder()
+        pesoTextField.resignFirstResponder()
+        expectPesoTextField.resignFirstResponder()
     }
     
     //标签栏、确认按钮，取消按钮
@@ -331,13 +331,13 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         toolBar.barStyle = .default
         toolBar.sizeToFit()
         toolBar.isTranslucent = false
-        if field == DateTextField{ //判断filed是那个文本框
+        if field == dateTextField{ //判断filed是那个文本框
         toolBar.items = [cancelButton,placeholder,dateFinishButton]
-        }else if field == HeightTextField {
+        }else if field == heightTextField {
             toolBar.items = [cancelButton,placeholder,heightFinishButton]
-        }else if field == PesoTextField{
+        }else if field == pesoTextField{
             toolBar.items = [cancelButton,placeholder,pesoFinishButton]
-        }else if field == ExpectPesoTextField {
+        }else if field == expectPesoTextField {
             toolBar.items = [cancelButton,placeholder,expectPesoFinishButton]
         }
         field.inputAccessoryView = toolBar
@@ -358,7 +358,7 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     
    //finishDate按钮
     @objc func finishDate(){
-            self.DateTextField.text = dateFormatter.string(from: datePicker.date)   //将日期选择框的值设置给日期文本框
+            self.dateTextField.text = dateFormatter.string(from: datePicker.date)   //将日期选择框的值设置给日期文本框
             self.view.endEditing(true)
     }
     //finishHeight(身高选择栏确认按钮事件)
@@ -367,7 +367,7 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         let row2 = self.heightPickerView.selectedRow(inComponent: 1)
         let selected1 = self.heightAllData[row2][row1]
         let selected2 = self.heightData[row2]
-        self.HeightTextField.text = "\(selected1)\(selected2)"
+        self.heightTextField.text = "\(selected1)\(selected2)"
         self.view.endEditing(true)
     }
     //finishPeso(当前体重选择栏确认按钮事件)
@@ -376,7 +376,7 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         let row2 = self.pesoPickerView.selectedRow(inComponent: 1)
         let selected1 = self.pesoAllData[row2][row1]
         let selected2 = self.pesoData[row2]
-        self.PesoTextField.text = "\(selected1)\(selected2)"
+        self.pesoTextField.text = "\(selected1)\(selected2)"
         self.view.endEditing(true)
     }
     //finishExpectPeso(期待体重选择栏确认按钮事件)
@@ -385,23 +385,23 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         let row2 = self.pesoPickerView.selectedRow(inComponent: 1)
         let selected1 = self.pesoAllData[row2][row1]
         let selected2 = self.pesoData[row2]
-        self.ExpectPesoTextField.text = "\(selected1)\(selected2)"
+        self.expectPesoTextField.text = "\(selected1)\(selected2)"
         self.view.endEditing(true)
     }
     
     @IBAction func AddUserInfo(_ sender: Any) {
         //获取用户名
-        let UserName = self.UserNameTextField.text!
+        let UserName = self.userNameTextField.text!
         //获取性别的数据
-        let Sex = self.UserSexSegmented.selectedSegmentIndex == 0 ? "男" : "女"
+        let Sex = self.userSexSegmented.selectedSegmentIndex == 0 ? "男" : "女"
         //获取生日
-        let date = self.DateTextField.text!
+        let date = self.dateTextField.text!
         //获取身高
-        let height = self.HeightTextField.text!
+        let height = self.heightTextField.text!
         //获取当前体重
-        let peso = self.PesoTextField.text!
+        let peso = self.pesoTextField.text!
         //获取期待体重
-        let expectPeso = self.ExpectPesoTextField.text!
+        let expectPeso = self.expectPesoTextField.text!
         print("用户名：\(UserName),性别：\(Sex),生日日期：\(date),身高：\(height),当前体重：\(peso),期待体重：\(expectPeso)")
 
     }

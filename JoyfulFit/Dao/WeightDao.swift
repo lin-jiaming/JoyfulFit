@@ -11,40 +11,48 @@ import RealmSwift
 final class WeightDao {
     static let dao = RealmDaoHelper<WeightModel>()
     
-    static func add(object: WeightModel) {
+    //添加单条数据
+    static func addWeight(object: WeightModel) {
         dao.add(object: object)
     }
     
-    static func add(objects: [WeightModel]) {
+    //添加多条数据
+    static func addWeights(objects: [WeightModel]) {
         dao.add(objects: objects)
     }
     
+    //修改单条数据
     static func updateWeight(object: WeightModel) {
         dao.update(object: object)
     }
     
+    //修改多条数据
     static func updateWeights(objects: [WeightModel]){
         dao.update(objects: objects)
     }
     
-    static func deleteWeight(res: String){
-        guard let object = dao.findFirst(key: res as AnyObject) else {
+    //根据ref(Id)删除数据
+    static func deleteWeight(ref: String){
+        guard let object = dao.findFirst(key: ref as AnyObject) else {
             return
         }
         dao.delete(object: object)
     }
     
+    //删除所有数据
     static func deleteAll() {
         dao.deleteAll()
     }
     
-    static func findWeightByRes(res: String) -> WeightModel?{
-        guard let object = dao.findFirst(key: res as AnyObject) else {
+    //根据ref查询单条数据
+    static func findWeightByRes(ref: String) -> WeightModel?{
+        guard let object = dao.findFirst(key: ref as AnyObject) else {
             return nil
         }
         return object
     }
     
+    //查询所有数据
     static func findAll() -> [WeightModel] {
         return dao.findAll().map {WeightModel(value: $0)}
     }

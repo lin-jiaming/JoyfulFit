@@ -14,18 +14,18 @@ import AlamofireObjectMapper
 class RegisterViewController: UIViewController,UITextFieldDelegate {
     
     //邮箱文本框
-    @IBOutlet weak var Email: UITextField!
+    @IBOutlet weak var email: UITextField!
     //密码文本框
-    @IBOutlet weak var PassWord: UITextField!
+    @IBOutlet weak var passWord: UITextField!
     //确认密码文本框
-    @IBOutlet weak var ConfirmPassword: UITextField!
+    @IBOutlet weak var confirmPassword: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //绑定文本框委托
-        self.Email.delegate = self
-        self.PassWord.delegate = self
-        self.ConfirmPassword.delegate = self
+        self.email.delegate = self
+        self.passWord.delegate = self
+        self.confirmPassword.delegate = self
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,22 +35,22 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
     //TextFieldDelegate委托方法
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         //按return收起键盘
-        if textField == self.Email {
-           self.Email.resignFirstResponder()
+        if textField == self.email {
+           self.email.resignFirstResponder()
             return true
-        }else if textField == self.PassWord{
-            self.PassWord.resignFirstResponder()
+        }else if textField == self.passWord{
+            self.passWord.resignFirstResponder()
             return true
         }else {
-            self.ConfirmPassword.resignFirstResponder()
+            self.confirmPassword.resignFirstResponder()
             return true
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.Email.resignFirstResponder()
-        self.PassWord.resignFirstResponder()
-        self.ConfirmPassword.resignFirstResponder()
+        self.email.resignFirstResponder()
+        self.passWord.resignFirstResponder()
+        self.confirmPassword.resignFirstResponder()
     }
     
     //注册用户按钮事件
@@ -63,7 +63,5 @@ class RegisterViewController: UIViewController,UITextFieldDelegate {
                             print(data[0].email)
                         }
                 }
-            print(WeightDao.findAll())
         }
-    
 }
