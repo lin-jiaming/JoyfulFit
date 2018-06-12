@@ -113,6 +113,22 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		B444ABFF20CFC8CB001593DD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B4762D9C20ABFE750075A83C /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B444AC0020CFC8E2001593DD /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		B446F21A20CA358200A8530E /* History */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,14 +210,14 @@
 		B497583620AAB284001ADA02 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B444AC0020CFC8E2001593DD /* Register */,
+				B444ABFF20CFC8CB001593DD /* Login */,
 				B446F21F20CA4A4700A8530E /* Setting */,
 				B446F21E20CA4A3A00A8530E /* Home */,
 				B446F21A20CA358200A8530E /* History */,
 				B497583920AAB533001ADA02 /* BalanceViewController.swift */,
-				B4762D9C20ABFE750075A83C /* LoginViewController.swift */,
 				B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */,
 				B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */,
-				B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
