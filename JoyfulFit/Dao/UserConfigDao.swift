@@ -16,7 +16,7 @@ final class UserConfigDao{
     
     //添加UserConfig
     static func addUserConfig(object: UserConfig){
-        dao.add(object: object)
+        dao.add(object:object)
     }
     //修改UserConfig
     static func updateUserConfig(object: UserConfig){
@@ -25,6 +25,11 @@ final class UserConfigDao{
     //删除UserConfig
     static func deleteUserConfig(){
         dao.deleteAll()
+    }
+    
+    //查询UserConfig
+    static func findAll() -> [UserConfig] {
+        return dao.findAll().map {UserConfig(value: $0)}
     }
     
     //判断是否登录

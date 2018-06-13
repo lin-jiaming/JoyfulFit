@@ -60,13 +60,14 @@ final class RealmDaoHelper <T : RealmSwift.Object>{
         return findAll().last
     }
     
+    
     /**
      *添加数据
      */
     func add(object: T) {
         do {
             try realm.write {
-                realm.add(object)
+                realm.add(object, update: true)
             }
         }catch let error {
             print(error.localizedDescription)
@@ -79,7 +80,7 @@ final class RealmDaoHelper <T : RealmSwift.Object>{
     func add(objects: [T])  {
         do {
             try realm.write {
-                realm.add(objects)
+                realm.add(objects, update: true)
             }
         }catch let error{
             print(error.localizedDescription)

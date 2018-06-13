@@ -14,15 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
-        // 获取到AppManager里面的userconfig，判断用户是否已登录
-        
+        //查询UserConfig里面字段为email是否数据
+        let result = UserConfigDao.findAll()
         //未登录
-        
-        let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let view = storyboard.instantiateViewController(withIdentifier: "Login") as! UINavigationController
-        self.window?.rootViewController = view
+        if  result == [] {                  //查询出来的数据是一个空数组的话，就跳转到登录界面
+            let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let view = storyboard.instantiateViewController(withIdentifier: "Login") as! UINavigationController
+            self.window?.rootViewController = view
+        }
         return true
     }
 

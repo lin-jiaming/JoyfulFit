@@ -46,7 +46,7 @@ final class UserDao{
     }
     
     //根据Id查询数据
-    static func findByUserId(Id: String) -> UserModel? {
+    static func findUserById(Id: String) -> UserModel? {
         guard let object = dao.findFirst(key: Id as AnyObject) else {
             return nil
         }

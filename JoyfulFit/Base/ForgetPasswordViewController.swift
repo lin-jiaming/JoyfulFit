@@ -56,7 +56,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
             autoAlertController("已发送密码邮箱至您的邮箱，请注意查收")
             //延时跳转到登录页面
             let thread:Thread = Thread{
-                Thread.sleep(forTimeInterval: 2)
+                Thread.sleep(forTimeInterval: 1.5)
                 self.performSegue(withIdentifier: "UpdateSuccess", sender: self)
             }
             thread.start()
@@ -75,7 +75,7 @@ class ForgetPasswordViewController: UIViewController,UITextFieldDelegate {
         //显示提示框
         self.present(alertController, animated: true, completion: nil)
         //两秒后自动消失
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
             self.presentedViewController?.dismiss(animated: false, completion: nil)
         }
     }

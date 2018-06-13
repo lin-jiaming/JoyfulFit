@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请输入已注册的邮箱，我们将发送密码的邮件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g03-oa-6hC">
-                                <rect key="frame" x="16" y="72" width="294" height="16"/>
+                                <rect key="frame" x="16" y="116" width="294" height="16"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gAf-fD-l3f">
-                                <rect key="frame" x="16" y="96" width="288" height="42"/>
+                                <rect key="frame" x="16" y="140" width="288" height="42"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮箱" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="c8I-FN-Kso">
                                         <rect key="frame" x="8" y="0.0" width="250" height="42"/>
@@ -1544,7 +1544,7 @@
         <!--设置-->
         <scene sceneID="IpJ-cD-OWk">
             <objects>
-                <tableViewController id="qOQ-xY-TEO" sceneMemberID="viewController">
+                <tableViewController id="qOQ-xY-TEO" customClass="SettingViewController" customModule="JoyfulFit" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="mfl-4u-Ndn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1613,19 +1613,47 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="R9Y-Wx-uEP">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="x0V-Nl-rTr">
+                                        <rect key="frame" x="0.0" y="275" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x0V-Nl-rTr" id="G9f-6F-mlg">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fnW-K0-8Ti">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43.5" id="9ZB-X0-JLG"/>
+                                                    </constraints>
+                                                    <state key="normal" title="退出登录"/>
+                                                    <connections>
+                                                        <action selector="doLoginOut:" destination="qOQ-xY-TEO" eventType="touchUpInside" id="CCz-EI-RUI"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="fnW-K0-8Ti" firstAttribute="leading" secondItem="G9f-6F-mlg" secondAttribute="leading" id="oLg-Ji-pLV"/>
+                                                <constraint firstItem="fnW-K0-8Ti" firstAttribute="top" secondItem="G9f-6F-mlg" secondAttribute="top" id="wGl-ym-vvl"/>
+                                                <constraint firstAttribute="trailing" secondItem="fnW-K0-8Ti" secondAttribute="trailing" id="wJP-6i-HDM"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
-                        <connections>
-                            <outlet property="dataSource" destination="qOQ-xY-TEO" id="4mX-Ys-hk8"/>
-                            <outlet property="delegate" destination="qOQ-xY-TEO" id="m8p-pR-wEE"/>
-                        </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="设置" image="Setting" id="7fE-5W-yYv"/>
                     <navigationItem key="navigationItem" title="设置" id="GT5-0g-qU2"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="oVp-S3-aWR" kind="modal" identifier="doLoginOut" id="OAt-sS-ZEm"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MRN-ZX-ulg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4399" y="1629"/>
+            <point key="canvasLocation" x="4398.75" y="1628.8732394366198"/>
         </scene>
         <!--设置-->
         <scene sceneID="Ysz-1R-apF">
@@ -1687,6 +1715,6 @@
         <image name="UserPlus" width="125" height="125"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="c6d-cG-lqt"/>
+        <segue reference="OAt-sS-ZEm"/>
     </inferredMetricsTieBreakers>
 </document>
