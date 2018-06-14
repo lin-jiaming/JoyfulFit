@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B437146120D20E8D00B733A4 /* UserinfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B437146020D20E8D00B733A4 /* UserinfoCollectionViewCell.swift */; };
+		B437146420D25D8B00B733A4 /* UpdateUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B437146320D25D8B00B733A4 /* UpdateUserInfoViewController.swift */; };
 		B444ABF620CF99C0001593DD /* UserConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444ABF520CF99C0001593DD /* UserConfig.swift */; };
 		B444ABF820CF9C62001593DD /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444ABF720CF9C62001593DD /* AppManager.swift */; };
 		B444ABFC20CF9C99001593DD /* SettingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B444ABFB20CF9C99001593DD /* SettingManager.swift */; };
@@ -36,6 +38,8 @@
 
 /* Begin PBXFileReference section */
 		4B89D067FAE8403143430CE8 /* Pods-JoyfulFit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JoyfulFit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JoyfulFit/Pods-JoyfulFit.debug.xcconfig"; sourceTree = "<group>"; };
+		B437146020D20E8D00B733A4 /* UserinfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserinfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B437146320D25D8B00B733A4 /* UpdateUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateUserInfoViewController.swift; sourceTree = "<group>"; };
 		B444ABF520CF99C0001593DD /* UserConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfig.swift; sourceTree = "<group>"; };
 		B444ABF720CF9C62001593DD /* AppManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		B444ABFB20CF9C99001593DD /* SettingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingManager.swift; sourceTree = "<group>"; };
@@ -95,6 +99,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B437146220D20FDC00B733A4 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B437146020D20E8D00B733A4 /* UserinfoCollectionViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B437146720D2667800B733A4 /* UserInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */,
+				B437146320D25D8B00B733A4 /* UpdateUserInfoViewController.swift */,
+			);
+			path = UserInfo;
+			sourceTree = "<group>";
+		};
 		B444ABF320CF9793001593DD /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +170,7 @@
 		B446F21E20CA4A3A00A8530E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B437146220D20FDC00B733A4 /* Cell */,
 				B497583720AAB516001ADA02 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -210,13 +232,13 @@
 		B497583620AAB284001ADA02 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B437146720D2667800B733A4 /* UserInfo */,
 				B444AC0020CFC8E2001593DD /* Register */,
 				B444ABFF20CFC8CB001593DD /* Login */,
 				B446F21F20CA4A4700A8530E /* Setting */,
 				B446F21E20CA4A3A00A8530E /* Home */,
 				B446F21A20CA358200A8530E /* History */,
 				B497583920AAB533001ADA02 /* BalanceViewController.swift */,
-				B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */,
 				B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */,
 			);
 			path = Base;
@@ -381,6 +403,7 @@
 				B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */,
 				B446F21D20CA35D500A8530E /* HistoryCollectionViewCell.swift in Sources */,
 				B4D779AB20C6523F00C94DD5 /* UserDao.swift in Sources */,
+				B437146420D25D8B00B733A4 /* UpdateUserInfoViewController.swift in Sources */,
 				B4762D9F20AC18960075A83C /* AddUserInfoViewController.swift in Sources */,
 				B444ABFE20CFA110001593DD /* UserConfigDao.swift in Sources */,
 				B497583A20AAB533001ADA02 /* BalanceViewController.swift in Sources */,
@@ -395,6 +418,7 @@
 				B444ABF820CF9C62001593DD /* AppManager.swift in Sources */,
 				B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */,
 				B497583820AAB516001ADA02 /* HomeViewController.swift in Sources */,
+				B437146120D20E8D00B733A4 /* UserinfoCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

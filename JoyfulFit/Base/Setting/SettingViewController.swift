@@ -23,7 +23,8 @@ class SettingViewController:UITableViewController {
     
     //退出登录的按钮
     @IBAction func doLoginOut(_ sender: Any) {
-        let alertController = UIAlertController(title: "", message: "退出登录不会清空数据", preferredStyle: .actionSheet)
+        //退出提示框
+        let alertController = UIAlertController(title: "", message: "退出登录后不会清空数据", preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
         let loginOutAction = UIAlertAction(title: "退出", style: .destructive, handler: {
             action in

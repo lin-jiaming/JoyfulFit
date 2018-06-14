@@ -60,6 +60,14 @@ final class RealmDaoHelper <T : RealmSwift.Object>{
         return findAll().last
     }
     
+    /**
+     *根据邮箱获取数据
+     *
+     ***/
+    func findByEmail(email: String) -> Results<T>{
+        return realm.objects(T.self).filter("email = %@", email)
+    }
+    
     
     /**
      *添加数据

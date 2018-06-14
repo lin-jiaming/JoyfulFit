@@ -71,12 +71,23 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                                 if passWordText == data[0].password {   //校验密码是否匹配
                                     //将查询到的数据保存到本地数据库中
                                     UserDao.addUsers(objects: data)
-                                    print(UserDao.findAll())
+                                    print("用户数据保存本地数据库成功!")
                                     //将登录邮箱保存到UserConfig数据表中
                                     let userConfig = UserConfig()
                                     userConfig.email = data[0].email
                                     UserConfigDao.addUserConfig(object: userConfig)
-                                    print(UserConfigDao.findAll())
+                                    print("用户登录数据保存到UserConfig表成功!")
+                                    //根据登录邮箱查询出用户的体重数据并保存到WeightModel数据表中
+                                    //获取体重数据Api
+                                    let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_scale.php"
+                                    let params = ["email": emailText ]
+                                    Alamofire.request(strURL, method: .get, parameters: params)
+                                        .responseArray { (response: DataResponse<[WeightModel]>) in
+                                            if let data = response.result.value{
+                                                WeightDao.addWeights(objects: data)
+                                                print("保存用户体重数据到本地数据库成功!")
+                                            }
+                                    }
                                     //收回键盘
                                     self.passWordTxtField.resignFirstResponder()
                                     //提示登录成功
