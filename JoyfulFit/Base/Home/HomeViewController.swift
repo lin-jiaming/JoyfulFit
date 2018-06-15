@@ -30,7 +30,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         //设置CollectionView委托和数据源
         collectionView.delegate = self
         collectionView.dataSource = self
-        
         //设置UIPageControl的个数
         pageControl.numberOfPages = UserDao.findAll().count
         //显示CollectioView
@@ -81,7 +80,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         if segue.identifier == "toUpdateUserInfo"{
             let controller = segue.destination as! UpdateUserInfoViewController
             controller.userId = sender as! String
-            
         }
     }
     
@@ -89,7 +87,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     @IBAction func doDeleteUser(_ sender: Any) {
         //点击删除按钮的时候刷新数据
         self.collectionView.reloadData()
-        if admin_User != "0" {          //当前用户不是主用户
+        if admin_User != "0" {               //当前用户不是主用户
             //点击删除按钮弹出提示框
             let alertController = UIAlertController(title: "删除用户", message: "是否删除该用户", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "取消", style: .cancel, handler: nil)
@@ -97,15 +95,16 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
                 action in
                 //根据当前显示用户的Id进行删除
                 UserDao.deleteUser(Id: self.userId)
-                self.viewDidLoad()
+                //重新刷新用户列表和圆点个数
+                self.collectionView.reloadData()
+                self.pageControl.numberOfPages = UserDao.findAll().count
                 self.showCollectionView()
-                
             })
             alertController.addAction(cancelAction)
             alertController.addAction(deletetAction)
             self.present(alertController, animated: true, completion: nil)
         }else{
-            let alertController = UIAlertController(title: "", message: "当前用户是主用户不能被删除", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "删除用户", message: "当前用户是主用户不能被删除", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "确定", style: .cancel, handler: nil)
             alertController.addAction(cancelAction)
             self.present(alertController, animated: true, completion: nil)

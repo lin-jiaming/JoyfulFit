@@ -18,7 +18,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
     
     //提示框
     var alertController: UIAlertController! = nil
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +93,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                                     self.autoAlertController("登录成功!")
                                     //登录成功！延时跳转到主页面
                                     let thread:Thread = Thread{
-                                        Thread.sleep(forTimeInterval: 1.5)
+                                        Thread.sleep(forTimeInterval: 1.2)
                                         self.performSegue(withIdentifier: "doLogin", sender: self)
                                     }
                                     thread.start()
@@ -109,7 +108,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                 }
         }
     }
-
+    
+    
     //自动关闭提示框
     func autoAlertController (_ ErrorMsg: String){
         //设置提示框

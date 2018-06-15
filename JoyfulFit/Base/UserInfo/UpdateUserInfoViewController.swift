@@ -9,7 +9,9 @@
 import UIKit
 import RealmSwift
 import Alamofire
-
+import AlamofireObjectMapper
+import SwiftyJSON
+import ObjectMapper
 class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
     //用户姓名
     @IBOutlet weak var userNameTextField: UITextField!
@@ -23,6 +25,11 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
     @IBOutlet weak var pesoTextField: UITextField!
     //期待体重文本框
     @IBOutlet weak var expectPesoTextField: UITextField!
+    //身高单位
+    var height_metric: String = ""
+    //体重单位
+    var weight_metric: String = ""
+    
     
     //日期选择器
     var datePicker = UIDatePicker()
@@ -60,20 +67,17 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         heightTextField.delegate = self
         pesoTextField.delegate = self
         expectPesoTextField.delegate = self
-        
         //日期选择器
         initDatePickerView()
-        
         //身高选择器
         initHeightPickerView()
-        
         //当前体重选择器
         initPesoPickerView(self.pesoTextField)
-        
         //期待体重选择器
         initPesoPickerView(self.expectPesoTextField)
-        
         print(userId)
+        //初始化数据
+        initUserinfo(userId)
     }
     
     override func didReceiveMemoryWarning() {
@@ -105,16 +109,6 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
     
     //初始化身高选择器
     func initHeightPickerView() {
-        //        //身高选择单位数据
-        //        heightData = ["厘米","英寸"]
-        //
-        //        //CM的数组数据
-        //        var cmArray = [String]()
-        //        //inches的数组数据
-        //        var inchesArrray = [String]()
-        //
-        //        //设置是否显示选中状态
-        //        heightPicker.showsSelectionIndicator = true
         //pickerView委托和数据源
         heightPickerView.dataSource = self
         heightPickerView.delegate = self
@@ -319,6 +313,9 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         let selected1 = self.heightAllData[row2][row1]
         let selected2 = self.heightData[row2]
         self.heightTextField.text = "\(selected1)\(selected2)"
+        //为身高单位赋值
+        self.height_metric = "\(selected2)"
+        
         self.view.endEditing(true)
     }
     //finishPeso(当前体重选择栏确认按钮事件)
@@ -328,6 +325,9 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         let selected1 = self.pesoAllData[row2][row1]
         let selected2 = self.pesoData[row2]
         self.pesoTextField.text = "\(selected1)\(selected2)"
+        //为体重单位赋值
+        self.weight_metric = "\(selected2)"
+        
         self.view.endEditing(true)
     }
     //finishExpectPeso(期待体重选择栏确认按钮事件)
@@ -337,10 +337,36 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         let selected1 = self.pesoAllData[row2][row1]
         let selected2 = self.pesoData[row2]
         self.expectPesoTextField.text = "\(selected1)\(selected2)"
+        //为体重单位赋值
+        self.weight_metric = "\(selected2)"
+        
         self.view.endEditing(true)
     }
     
-    @IBAction func AddUserInfo(_ sender: Any) {
+    //初始化用户数据
+    func initUserinfo(_ id: String){
+        //通过id查询出该用户的数据
+        let user = UserDao.findUserById(Id: id)
+        //获取用户名
+        self.userNameTextField.text! = user!.username
+        //获取性别
+        if user!.gender == "男"{
+            self.userSexSegmented.selectedSegmentIndex = 0
+        }else {
+            self.userSexSegmented.selectedSegmentIndex = 1
+        }
+        //获取生日
+        self.dateTextField.text! = user!.dob
+        //获取身高
+        self.heightTextField.text! = user!.height
+        //获取体重
+        self.pesoTextField.text! = user!.weight
+        //获取期待体重
+        self.expectPesoTextField.text! = user!.target_weight
+        
+    }
+    
+    @IBAction func UpdateUserInfo(_ sender: Any) {
         //获取用户名
         let UserName = self.userNameTextField.text!
         //获取性别的数据
@@ -353,9 +379,44 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         let peso = self.pesoTextField.text!
         //获取期待体重
         let expectPeso = self.expectPesoTextField.text!
-        print("用户名：\(UserName),性别：\(Sex),生日日期：\(date),身高：\(height),当前体重：\(peso),期待体重：\(expectPeso)")
+       
+        //先根据Id查询出用户信息 在修改
+        if let object = UserDao.findUserById(Id: userId) {
+            //实例化对象
+            let user = UserModel(value: object)
+            user.username = UserName
+            user.gender = Sex
+            user.dob = date
+            user.height = height
+            user.height_metric = height_metric
+            user.weight = peso
+            user.target_weight = expectPeso
+            user.weight_metric = weight_metric
+            //获取当前时间
+            let updateDate = Date()
+            let timeFormatter = DateFormatter()
+            timeFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss:SS"
+            let strNowTime = timeFormatter.string(from: updateDate) as String
+            user.update_date = strNowTime
+            
+            let userArray = [user]
+            let JSONString = Mapper().toJSONString(userArray, prettyPrint: true)
+            print(JSONString!)
+            //获取修改用户的Api
+            let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_sqlite_mem.php"
+            let params = ["usersJSON" : JSONString!]
+            print(params)
+            Alamofire.request(strURL, method: .post, parameters: params)
+                .responseData { response in
+                    
+            }
+            //修改本地数据
+//                UserDao.updateUser(object: user)
+        }
         
-    }
+        }
+    
+    
     
     
 }
