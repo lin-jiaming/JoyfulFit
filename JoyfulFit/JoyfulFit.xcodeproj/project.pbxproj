@@ -29,6 +29,8 @@
 		B4A4FFBD20B7DA0F0019CDF2 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A4FFBC20B7DA0F0019CDF2 /* UserModel.swift */; };
 		B4AE790520AD66FE0077C5C7 /* ForgetPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */; };
 		B4AFC4F220C5218C00BC1BE6 /* ScaleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AFC4F120C5218C00BC1BE6 /* ScaleView.swift */; };
+		B4B8D56020D8A30800A0D274 /* UserApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B8D55F20D8A30800A0D274 /* UserApiResponse.swift */; };
+		B4B8D56220D8A7A300A0D274 /* PerfectUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B8D56120D8A7A300A0D274 /* PerfectUserInfoViewController.swift */; };
 		B4B9BFD020B542A2002AC9BB /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */; };
 		B4D779A820C637A900C94DD5 /* WeightModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D779A720C637A900C94DD5 /* WeightModel.swift */; };
 		B4D779AB20C6523F00C94DD5 /* UserDao.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4D779AA20C6523F00C94DD5 /* UserDao.swift */; };
@@ -62,6 +64,8 @@
 		B4A4FFBC20B7DA0F0019CDF2 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		B4AE790420AD66FE0077C5C7 /* ForgetPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewController.swift; sourceTree = "<group>"; };
 		B4AFC4F120C5218C00BC1BE6 /* ScaleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleView.swift; sourceTree = "<group>"; };
+		B4B8D55F20D8A30800A0D274 /* UserApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserApiResponse.swift; sourceTree = "<group>"; };
+		B4B8D56120D8A7A300A0D274 /* PerfectUserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerfectUserInfoViewController.swift; sourceTree = "<group>"; };
 		B4B9BFCF20B542A2002AC9BB /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		B4D779A720C637A900C94DD5 /* WeightModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightModel.swift; sourceTree = "<group>"; };
 		B4D779AA20C6523F00C94DD5 /* UserDao.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDao.swift; sourceTree = "<group>"; };
@@ -112,6 +116,7 @@
 			children = (
 				B4762D9E20AC18960075A83C /* AddUserInfoViewController.swift */,
 				B437146320D25D8B00B733A4 /* UpdateUserInfoViewController.swift */,
+				B4B8D56120D8A7A300A0D274 /* PerfectUserInfoViewController.swift */,
 			);
 			path = UserInfo;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			children = (
 				B4A4FFBC20B7DA0F0019CDF2 /* UserModel.swift */,
 				B4D779A720C637A900C94DD5 /* WeightModel.swift */,
+				B4B8D55F20D8A30800A0D274 /* UserApiResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -398,6 +404,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B444ABFC20CF9C99001593DD /* SettingManager.swift in Sources */,
+				B4B8D56220D8A7A300A0D274 /* PerfectUserInfoViewController.swift in Sources */,
 				B4B9BFD020B542A2002AC9BB /* RegisterViewController.swift in Sources */,
 				B4762D9D20ABFE750075A83C /* LoginViewController.swift in Sources */,
 				B497583E20AAB562001ADA02 /* SettingViewController.swift in Sources */,
@@ -414,6 +421,7 @@
 				B444ABF620CF99C0001593DD /* UserConfig.swift in Sources */,
 				B4A4FFBD20B7DA0F0019CDF2 /* UserModel.swift in Sources */,
 				B4D779A820C637A900C94DD5 /* WeightModel.swift in Sources */,
+				B4B8D56020D8A30800A0D274 /* UserApiResponse.swift in Sources */,
 				B4AFC4F220C5218C00BC1BE6 /* ScaleView.swift in Sources */,
 				B444ABF820CF9C62001593DD /* AppManager.swift in Sources */,
 				B452309520C10CEB00180310 /* RealmDaoHelper.swift in Sources */,
@@ -549,6 +557,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos11.4;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;

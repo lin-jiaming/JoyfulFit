@@ -58,7 +58,7 @@ final class WeightDao {
     }
     
     //根据email查询数据
-    static func findWeightByEamil(email: String) -> [WeightModel]{
-        return dao.findByEmail(email: email).map{WeightModel(value: $0)}
+    static func findWeightByEamil(email: String) -> [UserModel]{
+        return dao.findByEmail(email: email).map{UserModel(value: $0)}
     }
 }

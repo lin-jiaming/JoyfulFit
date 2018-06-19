@@ -23,7 +23,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         super.viewDidLoad()
         emailTxtField.delegate = self
         passWordTxtField.delegate = self
-    
     }
     
     override func didReceiveMemoryWarning() {
@@ -101,7 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                                     self.autoAlertController("密码不正确!")
                                     self.passWordTxtField.text! = ""
                                 }
-                            }else {                                    //服务器返回的数据为空，则登录失败
+                            }else {//服务器返回的数据为空，则登录失败
                                 self.autoAlertController("没有这个用户存在！")
                             }
                         }

@@ -24,6 +24,8 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var  userId:String = ""
     //定义变量保存当前用户的admin_user
     var admin_User:String = ""
+    //获取UserConfig的Email
+//    var email:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,6 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
         collectionView.dataSource = self
         //设置UIPageControl的个数
         pageControl.numberOfPages = UserDao.findAll().count
-        //显示CollectioView
         showCollectionView()
     }
     

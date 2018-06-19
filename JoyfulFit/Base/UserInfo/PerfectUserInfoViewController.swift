@@ -1,19 +1,20 @@
 //
-//  UpdateUserInfoViewController.swift
+//  PerfectUserInfoViewController.swift
 //  JoyfulFit
 //
-//  Created by 林佳明 on 2018/6/14.
+//  Created by 林佳明 on 2018/6/19.
 //  Copyright © 2018年 Linjiaming. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import RealmSwift
 import Alamofire
 import AlamofireObjectMapper
 import SwiftyJSON
 import ObjectMapper
-//修改用户信息视图控制类
-class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+
+//完善用户信息视图控制类
+class PerfectUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
     //用户姓名
     @IBOutlet weak var userNameTextField: UITextField!
     //用户性别分段选择器
@@ -37,7 +38,8 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
     var target_weight: String = ""
     //提示框
     var alertController: UIAlertController! = nil
-    
+    //实例化一个user，用于保存从注册用户视图控制器保存过来的数据
+    var user = UserModel()
     
     //日期选择器
     var datePicker = UIDatePicker()
@@ -65,9 +67,6 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
     //选择体重数值的索引
     var pesoAllDataIndex = 0
     
-    //取出主页传递过来的用户Id
-    var userId: String = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         //文本框的委托
@@ -83,8 +82,9 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         initPesoPickerView(self.pesoTextField)
         //期待体重选择器
         initPesoPickerView(self.expectPesoTextField)
-        //初始化数据
-        initUserinfo(userId)
+        
+        //查看传递过来的user对象
+        print(user)
     }
     
     override func didReceiveMemoryWarning() {
@@ -129,7 +129,7 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         
         //添加一个标签栏，确定按钮，取消按钮
         toolBar(self.heightTextField)
-       
+        
     }
     
     //初始化当前体重选择器
@@ -341,79 +341,68 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         self.view.endEditing(true)
     }
     
-    //初始化用户数据
-    func initUserinfo(_ id: String){
-        //通过id查询出该用户的数据
-        let user = UserDao.findUserById(Id: id)
-        //获取用户名
-        self.userNameTextField.text! = user!.username
-        //获取性别
-        if user!.gender == "男"{
-            self.userSexSegmented.selectedSegmentIndex = 0
-        }else {
-            self.userSexSegmented.selectedSegmentIndex = 1
-        }
-        //获取生日
-        self.dateTextField.text! = user!.dob
-        //获取身高
-        self.height = user!.height
-        self.height_metric = user!.height_metric
-        self.heightTextField.text! = user!.height + user!.height_metric
-        //获取体重
-        self.weight = user!.weight
-        self.target_weight = user!.target_weight
-        self.weight_metric = user!.weight_metric
-        self.pesoTextField.text! = user!.weight + user!.weight_metric
-        //获取期待体重
-        self.expectPesoTextField.text! = user!.target_weight + user!.weight_metric
-    }
-    
-    @IBAction func UpdateUserInfo(_ sender: Any) {
+    //注册按钮事件
+    @IBAction func doRegister(_ sender: Any) {
         //获取用户名
         let userNameText = self.userNameTextField.text!
         //获取性别的数据
         let sexText = self.userSexSegmented.selectedSegmentIndex == 0 ? "男" : "女"
         //获取生日
         let dateText = self.dateTextField.text!
-        //先根据Id查询出用户信息 在修改
-        if let object = UserDao.findUserById(Id: userId) {
-            //实例化对象
-            let user = UserModel(value: object)
-            user.username = userNameText
-            user.gender = sexText
-            user.dob = dateText
-            user.height = self.height
-            user.height_metric = self.height_metric
-            user.weight = self.weight
-            user.target_weight = self.target_weight
-            user.weight_metric = self.weight_metric
-            //获取当前时间
-            let updateDate = Date()
-            let timeFormatter = DateFormatter()
-            timeFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss:SS"
-            let strNowTime = timeFormatter.string(from: updateDate) as String
-            user.update_date = strNowTime
-            
-            //model转JSON字符串
-            let userArray = [user]
-            let JSONString = Mapper().toJSONString(userArray, prettyPrint: true)
-            //获取修改用户的Api
-            let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_sqlite_mem.php"
-            let params = ["usersJSON" : JSONString!]
-            Alamofire.request(strURL, method: .post, parameters: params)
-                .responseArray { (response: DataResponse<[UserApiReponse]>) in
-                    if let data =  response.result.value{
-                        print(data[0].sqlite_id)
-                        //修改本地数据
-                        UserDao.updateUser(object: user)
-                        //提示修改成功
-                        self.autoAlertController("修改成功")
+        //用户Id
+        user.id = UUID().uuidString
+        //姓名
+        user.username = userNameText
+        //性别
+        user.gender = sexText
+        //出生日期
+        user.dob = dateText
+        //身高
+        user.height = self.height
+        //身高单位
+        user.height_metric = self.height_metric
+        //目前体重
+        user.weight = self.weight
+        //期待体重
+        user.target_weight = self.target_weight
+        //体重单位
+        user.weight_metric = self.weight_metric
+        //获取当前时间
+        let updateDate = Date()
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat =  "yyyy-MM-dd HH:mm:ss:SS"
+        let strNowTime = timeFormatter.string(from: updateDate) as String
+        //创建时间
+        user.create_date = strNowTime
+        //修改时间
+        user.update_date = "0000-00-00 00:00:00:00"
+        //语言
+        user.language = "cn"
+        //状态
+        user.status = "1"
+//        model转JSON字符串
+        let userArray = [user]
+        let JSONString = Mapper().toJSONString(userArray, prettyPrint: true)
+//        //获取修改用户的Api
+        let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_sqlite_mem.php"
+        let params = ["usersJSON" : JSONString!]
+        print(params)
+        Alamofire.request(strURL, method: .post, parameters: params)
+            .responseArray { (response: DataResponse<[UserApiReponse]>) in
+                if let data =  response.result.value{
+                    print(data[0])
+                    //提示注册成功
+                    self.autoAlertController("注册成功!")
+                    //延时跳转到登录页面
+                    let thread:Thread = Thread{
+                        Thread.sleep(forTimeInterval: 1.0)
+                        self.performSegue(withIdentifier: "doRegister", sender: self)
                     }
-            }
-            
+                    thread.start()
+                }
         }
         
-        }
+    }
     
     //自动关闭提示框
     func autoAlertController (_ ErrorMsg: String){
@@ -422,7 +411,7 @@ class  UpdateUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         //显示提示框
         self.present(alertController, animated: true, completion: nil)
         //自动消失
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.5) {
             self.presentedViewController?.dismiss(animated: false, completion: nil)
         }
     }

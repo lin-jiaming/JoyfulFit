@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//添加用户视图控制类
 class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
     //用户姓名
     @IBOutlet weak var userNameTextField: UITextField!
@@ -20,6 +21,14 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     @IBOutlet weak var pesoTextField: UITextField!
     //期待体重文本框
     @IBOutlet weak var expectPesoTextField: UITextField!
+    //身高单位
+    var height_metric: String = ""
+    //体重单位
+    var weight_metric: String = ""
+    //提示框
+    var alertController: UIAlertController! = nil
+    
+   
     
     //日期选择器
     var datePicker = UIDatePicker()
@@ -46,6 +55,8 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     var pesoDataIndex = 0
     //选择体重数值的索引
     var pesoAllDataIndex = 0
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -307,7 +318,7 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         dateTextField.resignFirstResponder()
         userNameTextField.resignFirstResponder()
-//        heightTextField.resignFirstResponder()
+        heightTextField.resignFirstResponder()
         pesoTextField.resignFirstResponder()
         expectPesoTextField.resignFirstResponder()
     }
@@ -368,6 +379,8 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         let selected1 = self.heightAllData[row2][row1]
         let selected2 = self.heightData[row2]
         self.heightTextField.text = "\(selected1)\(selected2)"
+        //给身高单位赋值
+        self.height_metric = "\(selected2)"
         self.view.endEditing(true)
     }
     //finishPeso(当前体重选择栏确认按钮事件)
@@ -377,6 +390,8 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         let selected1 = self.pesoAllData[row2][row1]
         let selected2 = self.pesoData[row2]
         self.pesoTextField.text = "\(selected1)\(selected2)"
+        //给体重单位赋值
+        self.weight_metric = "\(selected2)"
         self.view.endEditing(true)
     }
     //finishExpectPeso(期待体重选择栏确认按钮事件)
@@ -386,6 +401,8 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         let selected1 = self.pesoAllData[row2][row1]
         let selected2 = self.pesoData[row2]
         self.expectPesoTextField.text = "\(selected1)\(selected2)"
+        //给体重单位赋值
+        self.weight_metric = "\(selected2)"
         self.view.endEditing(true)
     }
     
@@ -403,8 +420,22 @@ class AddUserInfoViewController: UIViewController,UITextFieldDelegate,UIPickerVi
         //获取期待体重
         let expectPeso = self.expectPesoTextField.text!
         print("用户名：\(UserName),性别：\(Sex),生日日期：\(date),身高：\(height),当前体重：\(peso),期待体重：\(expectPeso)")
+        let  id =  UUID().uuidString
+        print(id)
 
     }
     
+    //自动关闭提示框
+    func autoAlertController (_ ErrorMsg: String){
+        //设置提示框
+        alertController = UIAlertController(title: ErrorMsg, message: nil, preferredStyle: .alert)
+        //显示提示框
+        self.present(alertController, animated: true, completion: nil)
+        //自动消失
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
+            self.presentedViewController?.dismiss(animated: false, completion: nil)
+        }
+        
+    }
     
 }

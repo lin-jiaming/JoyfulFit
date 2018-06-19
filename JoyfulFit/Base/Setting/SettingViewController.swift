@@ -30,7 +30,7 @@ class SettingViewController:UITableViewController {
             action in
             //将UserConfig中的数据清空
             UserConfigDao.deleteUserConfig()
-            //清空用户数据
+            //将UserInfo数据清空
             UserDao.deleteAll()
             //返回登录页面
             self.performSegue(withIdentifier: "doLoginOut", sender: self)

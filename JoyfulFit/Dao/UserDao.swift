@@ -52,6 +52,10 @@ final class UserDao{
         }
         return object
     }
+    //根据email查询数据
+    static func findUserByEamil(email: String) -> [UserModel]{
+        return dao.findByEmail(email: email).map{UserModel(value: $0)}
+    }
     
     //查询所有数据
     static func findAll() -> [UserModel] {
