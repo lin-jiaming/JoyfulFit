@@ -59,6 +59,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
             } else if passWordText == ""{                            //判断密码输入框是否为空
                 self.autoAlertController("密码不能为空!")
             } else {
+                
                 //请求查询用户列表Api
                 let strURL = "http://i.joyelectronics.com.cn/bodyscale1/syn_initial.php"
                 let params = ["email": emailText]
@@ -73,7 +74,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                                     //将登录邮箱保存到UserConfig数据表中
                                     let userConfig = UserConfig()
                                     userConfig.email = data[0].email
-                                    UserConfigDao.addUserConfig(object: userConfig)
+                                    AppManager.shareInstance().settingManager.userConfigDao.addUserConfig(object: userConfig)
+                                    AppManager.shareInstance().settingManager.userConfig = userConfig
                                     print("用户登录数据保存到UserConfig表成功!")
                                     //根据登录邮箱查询出用户的体重数据并保存到WeightModel数据表中
                                     //获取体重数据Api
@@ -84,18 +86,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
                                             if let data = response.result.value{
                                                 WeightDao.addWeights(objects: data)
                                                 print("保存用户体重数据到本地数据库成功!")
+                                                //提示登录成功
+                                                self.autoAlertController("登录成功!")
                                             }
                                     }
+                                    
                                     //收回键盘
                                     self.passWordTxtField.resignFirstResponder()
-                                    //提示登录成功
-                                    self.autoAlertController("登录成功!")
-                                    //登录成功！延时跳转到主页面
-                                    let thread:Thread = Thread{
-                                        Thread.sleep(forTimeInterval: 1.2)
-                                        self.performSegue(withIdentifier: "doLogin", sender: self)
-                                    }
-                                    thread.start()
+//                                    //登录成功！延时跳转到主页面
+//                                    let thread:Thread = Thread{
+//                                        Thread.sleep(forTimeInterval: 1.2)
+//
+//                                    }
+//                                    thread.start()
                                 } else {
                                     self.autoAlertController("密码不正确!")
                                     self.passWordTxtField.text! = ""
@@ -117,7 +120,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate{
         self.present(alertController, animated: true, completion: nil)
         //自动消失
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0) {
-            self.presentedViewController?.dismiss(animated: false, completion: nil)
+            self.presentedViewController?.dismiss(animated: false, completion: {
+                self.performSegue(withIdentifier: "doLogin", sender: self)
+            })
+    
         }
     }
 }

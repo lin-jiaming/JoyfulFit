@@ -24,17 +24,12 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     var  userId:String = ""
     //定义变量保存当前用户的admin_user
     var admin_User:String = ""
-    //获取UserConfig的Email
-//    var email:String = ""
+    // 用户列表
+    var userList: [UserModel]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //设置CollectionView委托和数据源
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        //设置UIPageControl的个数
-        pageControl.numberOfPages = UserDao.findAll().count
-        showCollectionView()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,12 +38,31 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         super.viewWillAppear(animated)
+        print("Home View viewWillAppear 已调用")
+        loadData()
+        
+    }
+    
+    func loadData(){ // 刷新页面显示
+        
+        if AppManager.shareInstance().settingManager.userConfigDao.isLogin() {
+            userList = UserDao.findAll()
+            //设置CollectionView委托和数据源
+            collectionView.delegate = self
+            collectionView.dataSource = self
+            //设置UIPageControl的个数
+            pageControl.numberOfPages = (userList?.count)!
+            showCollectionView()
+            
+        }
+        
     }
     
     //collectionView的委托
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return UserDao.findAll().count
+        return (userList?.count)!
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -58,14 +72,14 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UserCell", for: indexPath) as! UserinfoCollectionViewCell
         //查询用户数据
-        let user = UserDao.findAll()
+
         //为当前的Cell设置用户名
-        cell.userName.text! = user[indexPath.row].username
+        cell.userName.text! = userList![indexPath.row].username
         
         //获取当前cell的id赋值给userId
-        userId = user[indexPath.row].id
+        userId = userList![indexPath.row].id
         //获取当前cell的admin_user赋值给admin_User
-        admin_User = user[indexPath.row].admin_user
+        admin_User = userList![indexPath.row].admin_user
         return cell
     }
     
@@ -131,6 +145,7 @@ class HomeViewController: UIViewController,UICollectionViewDelegate,UICollection
     
    //创建CollectionView
     func showCollectionView(){
+        
         let layout = UICollectionViewFlowLayout()
         let cellHeight = collectionView.frame.size.height
         let cellWidth = self.view.frame.size.width

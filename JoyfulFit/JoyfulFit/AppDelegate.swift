@@ -15,9 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         //查询UserConfig里面字段为email是否数据
-        let result = UserConfigDao.findAll()
         //未登录
-        if  result == [] {                  //查询出来的数据是一个空数组的话，就跳转到登录界面
+        if  AppManager.shareInstance().settingManager.userConfigDao.isLogin() {                  //查询出来的数据是一个空数组的话，就跳转到登录界面
             let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let view = storyboard.instantiateViewController(withIdentifier: "Login") as! UINavigationController
             self.window?.rootViewController = view

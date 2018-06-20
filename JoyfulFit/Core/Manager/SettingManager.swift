@@ -8,10 +8,11 @@
 
 import UIKit
 class SettingManager: NSObject {
-    var userConfig: UserConfig
-    
-    init(userConfig : UserConfig) {
-        self.userConfig = userConfig
+    var userConfig: UserConfig?
+    let userConfigDao = UserConfigDao()
+
+    override init() {
+        self.userConfig = userConfigDao.findFirst()
         super.init()
     }
 }

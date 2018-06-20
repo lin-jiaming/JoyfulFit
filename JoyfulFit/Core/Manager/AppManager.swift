@@ -9,10 +9,10 @@
 import UIKit
 class AppManager: NSObject {
     static let manager : AppManager = AppManager()
-    var settingManager: SettingManager?
+    var settingManager = SettingManager()
     
     class func shareInstance() -> AppManager{
         return manager
     }
-    
+
 }

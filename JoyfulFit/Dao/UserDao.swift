@@ -59,6 +59,16 @@ final class UserDao{
     
     //查询所有数据
     static func findAll() -> [UserModel] {
-        return dao.findAll().map {UserModel(value: $0)}
+        let userConfig = AppManager.shareInstance().settingManager.userConfigDao.findFirst()
+        if userConfig != nil {
+            let email = userConfig!.email
+            let realm = try! Realm()
+            let result =  realm.objects(UserModel.self).filter("email = %@", email)
+//            let result = dao.findByEmail(email: email)
+            return result.map{UserModel(value: $0)}
+        }else{
+            return [];
+        }
+        
     }
 }

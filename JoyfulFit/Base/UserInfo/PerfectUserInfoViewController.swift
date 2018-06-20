@@ -390,7 +390,7 @@ class PerfectUserInfoViewController: UIViewController,UITextFieldDelegate,UIPick
         Alamofire.request(strURL, method: .post, parameters: params)
             .responseArray { (response: DataResponse<[UserApiReponse]>) in
                 if let data =  response.result.value{
-                    print(data[0])
+                    print(data)
                     //提示注册成功
                     self.autoAlertController("注册成功!")
                     //延时跳转到登录页面

@@ -8,33 +8,42 @@
 
 import UIKit
 import RealmSwift
-final class UserConfigDao{
-    //实例化一个UserConfig
-    static let userConfig = UserConfig()
+class UserConfigDao{
+
     //实例化一个RealmDaoHelper
-    static let dao = RealmDaoHelper<UserConfig>()
+    let dao = RealmDaoHelper<UserConfig>()
     
     //添加UserConfig
-    static func addUserConfig(object: UserConfig){
+    func addUserConfig(object: UserConfig){
         dao.add(object:object)
     }
     //修改UserConfig
-    static func updateUserConfig(object: UserConfig){
+    func updateUserConfig(object: UserConfig){
         dao.update(object: object)
     }
     //删除UserConfig
-    static func deleteUserConfig(){
+    func deleteUserConfig(){
         dao.deleteAll()
     }
     
     //查询UserConfig
-    static func findAll() -> [UserConfig] {
+    func findAll() -> [UserConfig] {
         return dao.findAll().map {UserConfig(value: $0)}
     }
     
+    func findFirst() -> UserConfig? {
+        let resultList = dao.findAll()
+        if (resultList.count > 0) {
+            return resultList.first!
+        }else{
+//            assert(true, "UserConfig 数据库为空")
+            return nil
+        }
+    }
+    
     //判断是否登录
-    static func isLogin() -> Bool{
-        return self.userConfig.email != ""
+    func isLogin() -> Bool{
+        return (AppManager.shareInstance().settingManager.userConfig != nil)
     }
     
     

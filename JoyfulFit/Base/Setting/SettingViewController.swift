@@ -29,7 +29,7 @@ class SettingViewController:UITableViewController {
         let loginOutAction = UIAlertAction(title: "退出", style: .destructive, handler: {
             action in
             //将UserConfig中的数据清空
-            UserConfigDao.deleteUserConfig()
+            AppManager.shareInstance().settingManager.userConfigDao.deleteUserConfig()
             //将UserInfo数据清空
             UserDao.deleteAll()
             //返回登录页面
